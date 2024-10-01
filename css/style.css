@@ -1,0 +1,151 @@
+.gameBoard{
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+hr{
+    width: 500px;
+}
+
+#correctSelect {
+    color: blue;
+}
+#correctErased {
+    color: green;
+}
+
+#board {
+    width: 450px;
+    height: 450px;
+
+    background-color: yellow;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#hDigits {
+    width: 450px;
+    height: 50px;
+
+    background-color: yellowgreen;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#hDigitsBottom {
+    width: 450px;
+    height: 50px;
+
+    background-color: yellowgreen;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#vDigitsLeft {
+    width: 50px;
+    height: 450px;
+    margin-left: 330px;
+
+    background-color: yellowgreen;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#vDigits {
+    width: 50px;
+    height: 450px;
+    margin-left: 70px;
+    margin-top: 225px;
+
+    background-color: yellowgreen;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.divBlankLeft {
+    margin-top: 225px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tile {
+    width: 50px;
+    height: 50px;
+    border: 1px solid yellow;
+
+    /*Text*/
+
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+
+    /*Text*/
+
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hAnswerNum {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+
+    /*Text*/
+
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hAnswerNumLeft {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+
+    /*Text*/
+
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vAnswerNum {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+
+    /*Text*/
+
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vAnswerNumBottom {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+
+    /*Text*/
+
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

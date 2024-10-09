@@ -1,32 +1,42 @@
 let numSelected = null;
 let tileSelected = null;
 
-let selected = 0;
-let erased = 0;
+//let selected = 0;
+//let erased = 0;
 
 let vNumber = [];
 let hNumber = [];
 let allNumber = [];
 let answerArray = [];
 let answerNumber;
+let selector = "";
+let boardSelection;
+let selectionToggle = document.querySelector("#slideToggle");
+let errorNum = 0;
+let errorCounter = document.querySelector("#errorCount")
+
+selectionToggle.addEventListener("click", checkSelection);
 
 setGameBoard();
 answerTable();
 calculateColumns();
+checkSelection();
+console.log(answerArray);
 
-console.log(allNumber);
-console.log(hNumber);
+
 
 function setGameBoard() {
     //TODO Fill the grid with random numbers 1-9
     for (let i = 0; i < 9; i++) {
         allNumber[i] = [];
         for (let j = 0; j < 9; j++) {
+            //debugger
             let num = Math.floor(Math.random() * 9) + 1;
             allNumber[i].push(num);
             let number = document.createElement("div");
-            number.id = i;
+            number.id = i.toString() + "-" + j.toString();
             number.innerText = allNumber[i][j];
+            number.addEventListener("click", selectNumber)
             number.classList.add("number");
             document.getElementById("board").appendChild(number);
 
@@ -39,7 +49,6 @@ function answerTable() {
     //TODO Create the hidden answer table from the original board
     
     //! Create answer array for rows. Use as a base for column based answers
-
     for (let i = 0; i < 9; i++) {
         let hSum = 0;
         answerArray[i] = [];
@@ -60,8 +69,8 @@ function answerTable() {
         hNumber[i] = hSum
         let hAnswerNumLeft = document.createElement("div");
         let hAnswerNum = document.createElement("div");
-        hAnswerNumLeft.id = i;
-        hAnswerNum.id = i;
+        hAnswerNumLeft.id = i.toString();
+        hAnswerNum.id = i.toString();
         hAnswerNumLeft.innerText = hSum;
         hAnswerNum.innerText = hSum;
         hAnswerNumLeft.classList.add("hAnswerNumLeft");
@@ -72,9 +81,9 @@ function answerTable() {
 }
 
 function calculateColumns(){
-    console.log(answerArray);
+
     //vSum = answerArray 0,0 + 1,0 + 2,0 etc.
-    //debugger
+
     for (let i = 0; i < answerArray.length; i++) {
         let vSum = 0;
         answerNumber = 0;
@@ -85,17 +94,63 @@ function calculateColumns(){
         vNumber[i] = vSum;
         let vAnswerNum = document.createElement("div");
         let vAnswerNumBottom = document.createElement("div");
-        vAnswerNum.id = i;
-        vAnswerNumBottom.id = i;
+        vAnswerNum.id = i.toString();
+        vAnswerNumBottom.id = i.toString();
         vAnswerNum.innerText = vSum;
         vAnswerNumBottom.innerText = vSum;
         vAnswerNum.classList.add("vAnswerNum");
         vAnswerNumBottom.classList.add("vAnswerNumBottom");
         document.getElementById("hDigits").appendChild(vAnswerNum);
         document.getElementById("hDigitsBottom").appendChild(vAnswerNumBottom);
-
-
     }
 
 }
 
+//Check toggle status
+function checkSelection(){
+    if(selectionToggle.checked){
+        selector = "select"
+
+    }else{
+        selector = "erase"
+    }
+}
+
+function selectNumber(){
+    debugger
+    let coords = this.id.split("-");
+    let r = parseInt(coords[0]);
+    let c = parseInt(coords[1]);
+
+    if (answerArray[r][c] != 0 && selector == "select"){
+        tileSelected = this;
+        tileSelected.classList.add("number-selected");
+        console.log("test")
+    }
+    if (answerArray[r][c] == 0 && selector == "erase"){
+        tileSelected = this;
+        tileSelected.classList.add("number-erased");
+    }
+
+    if (answerArray[r][c] == 0 && selector == "select"){
+        tileSelected = this;
+        tileSelected.classList.add("number-error");
+        errorNum++;
+        errorCounter.innerText = errorNum;
+    }
+    if (answerArray[r][c] != 0 && selector == "erase"){
+        tileSelected = this;
+        tileSelected.classList.add("number-error2");
+        errorNum++;
+        errorCounter.innerText = errorNum;
+    }
+
+
+}
+//TODO Create toggle function and action
+
+//! If toggle is to the left, clicking the number if is not in the answersArray, delete the number in the cell.
+//! If toggle is to the left, clicking the number when it is in the answersArray, "shake the screen and let the player know that the number is in the included number."
+
+//* If toggle is to the right, clicking the number if it is in the answersArray, re-stylize the number by displaying a circle around the number
+//* If toggle is to the right, clicking the number if it is not in the answerArray, "shake the screen and let the player know that the number is not included."

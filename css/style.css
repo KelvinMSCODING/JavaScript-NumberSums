@@ -4,148 +4,216 @@
 }
 
 hr{
-    width: 500px;
+    width: 100%;
 }
 
-#correctSelect {
-    color: blue;
+#title {
+    color: red;
 }
-#correctErased {
+#errorTitle{
     color: green;
+    margin-bottom: 15px;
+}
+
+#errorCount{
+    color: red;
 }
 
 #board {
     width: 450px;
-    height: 450px;
-
-    background-color: yellow;
+    height: auto;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
 }
 
+.slider {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 50vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    margin-top: 10px;
+    background-color: green;
+    width: 100px;
+    height: 50px;
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+}
+.button::before {
+    margin-top: 10px;
+    position: absolute;
+    content: '';
+    background-color: yellow;
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+    margin: 3px;
+    margin-left: -45px;
+    transition: 0.2s;
+}
+input:checked + .button{
+    background-color: green;
+    
+    }
+input:checked + .button::before{
+    transform: translateX(50px);
+    }
+input{
+        display: none;
+    }
+
 #hDigits {
-    width: 450px;
-    height: 50px;
-
-    background-color: yellowgreen;
-    display: flex;
-    flex-wrap: wrap;
-}
-
+        width: 100%;
+        height: 33px;
+    
+        background-color: yellowgreen;
+        display: flex;
+        flex-wrap: wrap;
+    }
 #hDigitsBottom {
-    width: 450px;
-    height: 50px;
-
-    background-color: yellowgreen;
-    display: flex;
-    flex-wrap: wrap;
-}
-
+        width: 100%;
+        height: 32px;
+        margin-top: 138px;
+        background-color: yellowgreen;
+        display: flex;
+        flex-wrap: wrap;
+    }
 #vDigitsLeft {
-    width: 50px;
-    height: 450px;
-    margin-left: 330px;
-
-    background-color: yellowgreen;
-    display: flex;
-    flex-wrap: wrap;
-}
-
+        width: 10%;
+        height: 270px;
+        margin-top: 33px;
+        margin-left: 2px;
+        background-color: yellowgreen;
+        display: flex;
+        flex-wrap: wrap;
+        float: left;
+    }
 #vDigits {
-    width: 50px;
-    height: 450px;
-    margin-left: 70px;
-    margin-top: 225px;
-
-    background-color: yellowgreen;
+        width: 10%;
+        height: 270px;
+        margin-top: 33px;
+        margin-left: -51px;
+        display: flex;
+        flex-wrap: wrap;
+        float: right;
+    }
+#middleBoard{
+    width: 80%;
+   
+    float: inline-start;
     display: flex;
     flex-wrap: wrap;
 }
+    .tile {
+        width: 100%;
+        height: auto;
+        border: 1px solid yellow;
+    
+        /*Text*/
+    
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
 
-.divBlankLeft {
-    margin-top: 225px;
-    display: flex;
-    flex-wrap: wrap;
-}
+    .number {
+        width: 11%;
+        height: 19%;
+        border: 1px solid black;
+    
+        /*Text*/
+    
+        font-size: 13px;
+        font-weight: bold;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
 
-.tile {
-    width: 50px;
-    height: 50px;
-    border: 1px solid yellow;
+    .number-error {
+        font-size: 0px;
+        background-color: red;
+    }
+    
+    .number-error2 {
+        background-color: red;
+    }
+    
+    .number-erased {
+        font-size: 0px;
+    }
+    
+    .number-selected {
+        background-color: grey;
+        color: blue;
+    }
+    .hAnswerNum {
+        width: 100%;
+        height: 36.65px;
+        border: 1px solid black;
 
-    /*Text*/
+        /*Text*/
+    
+        font-size: 13px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: yellowgreen;
+    }
 
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .hAnswerNumLeft {
+        width: 100%;
+        height: 36.65px;
+        border: 1px solid black;
+    
+        /*Text*/
+    
+        font-size: 13px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: yellowgreen;
+    }
 
-.number {
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
+    .vAnswerNum {
+        width: 11%;
+        height: 32px;
+        border: 1px solid black;
+    
+        /*Text*/
+    
+        font-size: 13px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-    /*Text*/
-
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hAnswerNum {
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
-
-    /*Text*/
-
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.hAnswerNumLeft {
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
-
-    /*Text*/
-
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.vAnswerNum {
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
-
-    /*Text*/
-
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.vAnswerNumBottom {
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
-
-    /*Text*/
-
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .vAnswerNumBottom {
+        width: 11%;
+        height: 32px;
+        border: 1px solid black;
+    
+        /*Text*/
+    
+        font-size: 13px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }

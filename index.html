@@ -3,38 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NumberSum-Java</title>
+    <title>NumberSum-JavaScript</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
 </head>
 <body>
-    <div class="container">
+    <div class="conatiner-fluid">
         <div class="row">
-            <div class="col-4 sideFill">
-                <div class="divBlankLeft"></div>
-                <!--Display vertical digits-->
-                <div id="vDigitsLeft"></div>
-            </div>
-            <div class="col-4 gameBoard">
-                <h1>Number Sums</h1>
+            <div class="col-1 sideFill"></div>
+            <div class="col-10 gameBoard">
+                <h1 id="title">Number Sums</h1>
                 <hr>
                 <!--Get full function for these tags-->
-                <h2 id="correctSelect">0</h2>
-                <h2 id="correctErased">0</h2>
+                <h2 id="errorTitle">Error</h2>
+                <h3 id="errorCount">0</h3>
+                <!--Game Board LayOut-->
+                <div class="div layout">
+                    <div id="vDigitsLeft"></div>
+                    <div class="div horizontalBoard" id="middleBoard">
+                        <!--Display horizontal digits-->
+                        <div id="hDigits"></div>
+                        <!--Create 9x9 board-->
+                        <div id="board"></div>
+                        <div id="hDigitsBottom"></div>
+                    </div>
+                    <div id="vDigits"></div>
+                    <div id="slider">
+                        <input type="checkbox" id="slideToggle">
+                        <label for="slideToggle" class="button"></label>
+                    </div>
 
-                <!--Display horizontal digits-->
-                <div id="hDigits"></div>
-                <!--Create 9x9 board-->
-                <div id="board"></div>
-                <div id="hDigitsBottom"></div>
+                </div>
             </div>
-            <div class="col-4 sideFill">
-                <!--Display vertical digits-->
-                <div id="vDigits"></div>
-            </div>
+            <div class="col-1 sideFill"></div>
         </div>
     </div>
-    
 </body>
 <script type="text/javascript" src="./js/app.js"></script>
 </html>

@@ -20,22 +20,26 @@ hr{
 }
 
 #board {
-    width: 450px;
+    width: auto;
     height: auto;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
 }
 
-.slider {
-    padding: 0;
+#slider {
+    padding-top: 5%;
     margin: 0;
     width: 100%;
-    height: 50vh;
+    height: auto;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#slider img {
+    width: 15%;
+    height: auto;
 }
 
 .button {
@@ -75,7 +79,7 @@ input{
         width: 100%;
         height: 33px;
     
-        background-color: yellowgreen;
+
         display: flex;
         flex-wrap: wrap;
     }
@@ -83,7 +87,7 @@ input{
         width: 100%;
         height: 32px;
         margin-top: 138px;
-        background-color: yellowgreen;
+
         display: flex;
         flex-wrap: wrap;
     }
@@ -92,7 +96,7 @@ input{
         height: 270px;
         margin-top: 33px;
         margin-left: 2px;
-        background-color: yellowgreen;
+
         display: flex;
         flex-wrap: wrap;
         float: left;
@@ -202,6 +206,7 @@ input{
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: yellowgreen;
     }
 
     .vAnswerNumBottom {
@@ -216,4 +221,95 @@ input{
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: yellowgreen;
+    }
+
+    @media (min-width: 600px){
+        .hAnswerNum{
+            font-size: 20px;
+            height: 54.65px;
+
+        }
+        .hAnswerNumLeft{
+            font-size: 20px;
+            height: 54.65px;
+
+        }
+        .vAnswerNum{
+            font-size: 20px;
+            height: 50px;
+
+        }
+        .vAnswerNumBottom{
+            font-size: 20px;
+            height: 50px;
+        }
+        #vDigitsLeft{
+            margin-top: 50px;
+        }
+        #vDigits{
+            margin-top: 50px;
+        }
+        #hDigitsBottom{
+            margin-top: 204px;
+        }
+        .number{
+            font-size: 20px;
+        }
+        #board{
+            margin-top: 17px;
+        }
+        .button {
+            margin-top: 40px;
+            background-color: green;
+            width: 100px;
+            height: 50px;
+            border-radius: 100px;
+            cursor: pointer;
+            position: relative;
+            transition: 0.2s;
+        }
+        .button::before {
+            margin-top: 40px;
+            position: absolute;
+            content: '';
+            background-color: yellow;
+            width: 45px;
+            height: 45px;
+            border-radius: 100px;
+            margin: 3px;
+            margin-left: -45px;
+            transition: 0.2s;
+        }
+    }
+
+    @media (min-width: 900px){
+        #slider{
+
+        }
+    }
+
+    @media (min-width: 1220px){
+        .button {
+            margin-top: 320px;
+            background-color: green;
+            width: 100px;
+            height: 50px;
+            border-radius: 100px;
+            cursor: pointer;
+            position: relative;
+            transition: 0.2s;
+        }
+        .button::before {
+            margin-top: 320px;
+            position: absolute;
+            content: '';
+            background-color: yellow;
+            width: 45px;
+            height: 45px;
+            border-radius: 100px;
+            margin: 3px;
+            margin-left: -45px;
+            transition: 0.2s;
+        }
     }

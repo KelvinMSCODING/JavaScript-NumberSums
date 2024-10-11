@@ -1,8 +1,4 @@
-let numSelected = null;
 let tileSelected = null;
-
-//let selected = 0;
-//let erased = 0;
 
 let vNumber = [];
 let hNumber = [];
@@ -21,7 +17,6 @@ setGameBoard();
 answerTable();
 calculateColumns();
 checkSelection();
-console.log(answerArray);
 
 
 
@@ -30,7 +25,6 @@ function setGameBoard() {
     for (let i = 0; i < 9; i++) {
         allNumber[i] = [];
         for (let j = 0; j < 9; j++) {
-            //debugger
             let num = Math.floor(Math.random() * 9) + 1;
             allNumber[i].push(num);
             let number = document.createElement("div");
@@ -49,11 +43,12 @@ function answerTable() {
     //TODO Create the hidden answer table from the original board
     
     //! Create answer array for rows. Use as a base for column based answers
+    
     for (let i = 0; i < 9; i++) {
         let hSum = 0;
         answerArray[i] = [];
         for (let j = 0; j < 9; j++) {
-                    //*RNG select 0 or 1
+        //*RNG select 0 or 1
         let numSelect = Math.floor(Math.random() * 2);
         //*Determine if number is valid or will be left out
 
@@ -61,22 +56,28 @@ function answerTable() {
             hSum += 0;
             answerArray[i].push(0);
         }else{
-            answerNumber = allNumber[i][j];
-            answerArray[i].push(answerNumber);
-            hSum += answerNumber; 
+            if(hSum == 0 && j == 8){
+                break;
+            }else{
+                answerNumber = allNumber[i][j];
+                answerArray[i].push(answerNumber);
+                hSum += answerNumber; 
+                }
             }
         }
-        hNumber[i] = hSum
-        let hAnswerNumLeft = document.createElement("div");
-        let hAnswerNum = document.createElement("div");
-        hAnswerNumLeft.id = i.toString();
-        hAnswerNum.id = i.toString();
-        hAnswerNumLeft.innerText = hSum;
-        hAnswerNum.innerText = hSum;
-        hAnswerNumLeft.classList.add("hAnswerNumLeft");
-        hAnswerNum.classList.add("hAnswerNum");
-        document.getElementById("vDigitsLeft").appendChild(hAnswerNumLeft);
-        document.getElementById("vDigits").appendChild(hAnswerNum);
+            hNumber[i] = hSum
+            let hAnswerNumLeft = document.createElement("div");
+            let hAnswerNum = document.createElement("div");
+            hAnswerNumLeft.id = i.toString();
+            hAnswerNum.id = i.toString();
+            hAnswerNumLeft.innerText = hSum;
+            hAnswerNum.innerText = hSum;
+            hAnswerNumLeft.classList.add("hAnswerNumLeft");
+            hAnswerNum.classList.add("hAnswerNum");
+            document.getElementById("vDigitsLeft").appendChild(hAnswerNumLeft);
+            document.getElementById("vDigits").appendChild(hAnswerNum);
+        
+
     }
 }
 
@@ -117,7 +118,7 @@ function checkSelection(){
 }
 
 function selectNumber(){
-    debugger
+    //debugger
     let coords = this.id.split("-");
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);
@@ -125,7 +126,6 @@ function selectNumber(){
     if (answerArray[r][c] != 0 && selector == "select"){
         tileSelected = this;
         tileSelected.classList.add("number-selected");
-        console.log("test")
     }
     if (answerArray[r][c] == 0 && selector == "erase"){
         tileSelected = this;
@@ -147,10 +147,3 @@ function selectNumber(){
 
 
 }
-//TODO Create toggle function and action
-
-//! If toggle is to the left, clicking the number if is not in the answersArray, delete the number in the cell.
-//! If toggle is to the left, clicking the number when it is in the answersArray, "shake the screen and let the player know that the number is in the included number."
-
-//* If toggle is to the right, clicking the number if it is in the answersArray, re-stylize the number by displaying a circle around the number
-//* If toggle is to the right, clicking the number if it is not in the answerArray, "shake the screen and let the player know that the number is not included."

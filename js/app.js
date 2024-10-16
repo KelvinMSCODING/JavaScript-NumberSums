@@ -35,8 +35,7 @@ function setGameBoard() {
             number.classList.add("number");
             document.getElementById("board").appendChild(number);
 
-        }
-        
+        }  
     }
 }
 
@@ -76,8 +75,6 @@ function answerTable() {
             hAnswerNum.classList.add("hAnswerNum");
             document.getElementById("vDigitsLeft").appendChild(hAnswerNumLeft);
             document.getElementById("vDigits").appendChild(hAnswerNum);
-        
-
     }
 }
 

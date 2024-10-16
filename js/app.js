@@ -13,6 +13,7 @@ let errorCounter = document.querySelector("#errorCount")
 
 selectionToggle.addEventListener("click", checkSelection);
 
+//debugger
 setGameBoard();
 answerTable();
 calculateColumns();
@@ -40,8 +41,7 @@ function setGameBoard() {
 }
 
 function answerTable() {
-    //TODO Create the hidden answer table from the original board
-    
+    //TODO Create the hidden answer table from the original board  
     //! Create answer array for rows. Use as a base for column based answers
     
     for (let i = 0; i < 9; i++) {
@@ -118,7 +118,7 @@ function checkSelection(){
 }
 
 function selectNumber(){
-    //debugger
+
     let coords = this.id.split("-");
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);

@@ -61,7 +61,7 @@ hr{
     height: 45px;
     border-radius: 100px;
     margin: 3px;
-    margin-left: -45px;
+    margin-left: -47.5px;
     transition: 0.2s;
 }
 input:checked + .button{

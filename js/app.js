@@ -18,6 +18,7 @@ setGameBoard();
 answerTable();
 calculateColumns();
 checkSelection();
+console.log(answerArray);
 
 
 
@@ -119,6 +120,7 @@ function selectNumber(){
     let coords = this.id.split("-");
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);
+    debugger
 
     if (answerArray[r][c] != 0 && selector == "select"){
         tileSelected = this;
